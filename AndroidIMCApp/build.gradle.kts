@@ -13,4 +13,3 @@ plugins {
     // Ktlint para formatear el código
     alias(libs.plugins.ktlint)
 }
-
