@@ -1,7 +1,16 @@
 plugins {
+    // Librerias por defecto de Android
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    // safeargs para pasar argumentos entre fragmentos
     id("androidx.navigation.safeargs")
+
+    // Generación de documentación con Dokka
+    alias(libs.plugins.kotlin.dokka) apply false
+
+    // Ktlint para formatear el código
+    alias(libs.plugins.ktlint)
 }
 
 android {
