@@ -1,26 +1,26 @@
 package com.example.androidimc
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.androidimc.databinding.FragmentResultIMCBinding
-
 
 class ResultIMCFragment : Fragment() {
     private var _binding: FragmentResultIMCBinding? = null
-    private val binding: FragmentResultIMCBinding
+    val binding: FragmentResultIMCBinding
         get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentResultIMCBinding.inflate(inflater, container, false)
         val view = binding.root
-        val  altura = ResultIMCFragmentArgs.fromBundle(requireArguments()).altura
+        val altura = ResultIMCFragmentArgs.fromBundle(requireArguments()).altura
         val peso = ResultIMCFragmentArgs.fromBundle(requireArguments()).peso
         val edad = ResultIMCFragmentArgs.fromBundle(requireArguments()).edad
         val alturaMetros = altura.toDouble() / 100
@@ -53,5 +53,4 @@ class ResultIMCFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }
