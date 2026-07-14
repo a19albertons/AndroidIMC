@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
 
     // safeargs para pasar argumentos entre fragmentos
-    id("androidx.navigation.safeargs")
+    alias(libs.plugins.androidx.navigation.safeargs)
 
     // Generación de documentación con Dokka
     alias(libs.plugins.kotlin.dokka) apply false
