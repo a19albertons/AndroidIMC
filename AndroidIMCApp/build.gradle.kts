@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.androidx.navigation.safeargs) apply false
 
     // Generación de documentación con Dokka
-    alias(libs.plugins.kotlin.dokka) apply false
+    alias(libs.plugins.kotlin.dokka)
 
     // Ktlint para formatear el código
     alias(libs.plugins.ktlint)
