@@ -5,11 +5,23 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
 
     // safeargs para pasar argumentos entre fragmentos
-    id("androidx.navigation.safeargs") version "2.9.8" apply false
+    alias(libs.plugins.androidx.navigation.safeargs) apply false
 
     // Generación de documentación con Dokka
-    alias(libs.plugins.kotlin.dokka) apply false
+    alias(libs.plugins.kotlin.dokka)
 
     // Ktlint para formatear el código
     alias(libs.plugins.ktlint)
+}
+
+ktlint {
+    // Aplica las reglas de estilo de Android
+    android.set(true)
+    // Falla si se encuentran errores de estilo
+    ignoreFailures.set(false)
+    // Genera informes de errores en formato texto y HTML
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML)
+    }
 }

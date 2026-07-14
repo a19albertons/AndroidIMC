@@ -4,10 +4,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
 
     // safeargs para pasar argumentos entre fragmentos
-    id("androidx.navigation.safeargs")
+    alias(libs.plugins.androidx.navigation.safeargs)
 
     // Generación de documentación con Dokka
-    alias(libs.plugins.kotlin.dokka) apply false
+    alias(libs.plugins.kotlin.dokka)
 
     // Ktlint para formatear el código
     alias(libs.plugins.ktlint)
@@ -60,4 +60,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+dokka {
+    dokkaSourceSets.configureEach {
+        suppress.set(name != "main")
+    }
 }

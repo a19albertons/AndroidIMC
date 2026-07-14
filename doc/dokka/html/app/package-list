@@ -1,0 +1,16 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.example.androidimc////PointingToDeclaration/app/com.example.androidimc/index.html
+$dokka.location:com.example.androidimc/ImcCalculatorFragment///PointingToDeclaration/app/com.example.androidimc/-imc-calculator-fragment/index.html
+$dokka.location:com.example.androidimc/ImcCalculatorFragment/ImcCalculatorFragment/#/PointingToDeclaration/app/com.example.androidimc/-imc-calculator-fragment/-imc-calculator-fragment.html
+$dokka.location:com.example.androidimc/ImcCalculatorFragment/binding/#/PointingToDeclaration/app/com.example.androidimc/-imc-calculator-fragment/binding.html
+$dokka.location:com.example.androidimc/ImcCalculatorFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.androidimc/-imc-calculator-fragment/on-create-view.html
+$dokka.location:com.example.androidimc/ImcCalculatorFragment/onDestroyView/#/PointingToDeclaration/app/com.example.androidimc/-imc-calculator-fragment/on-destroy-view.html
+$dokka.location:com.example.androidimc/MainActivity///PointingToDeclaration/app/com.example.androidimc/-main-activity/index.html
+$dokka.location:com.example.androidimc/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.androidimc/-main-activity/-main-activity.html
+$dokka.location:com.example.androidimc/ResultIMCFragment///PointingToDeclaration/app/com.example.androidimc/-result-i-m-c-fragment/index.html
+$dokka.location:com.example.androidimc/ResultIMCFragment/ResultIMCFragment/#/PointingToDeclaration/app/com.example.androidimc/-result-i-m-c-fragment/-result-i-m-c-fragment.html
+$dokka.location:com.example.androidimc/ResultIMCFragment/binding/#/PointingToDeclaration/app/com.example.androidimc/-result-i-m-c-fragment/binding.html
+$dokka.location:com.example.androidimc/ResultIMCFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.androidimc/-result-i-m-c-fragment/on-create-view.html
+$dokka.location:com.example.androidimc/ResultIMCFragment/onDestroy/#/PointingToDeclaration/app/com.example.androidimc/-result-i-m-c-fragment/on-destroy.html
+com.example.androidimc
