@@ -1,7 +1,6 @@
 plugins {
     // Librerias por defecto de Android
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
 
     // safeargs para pasar argumentos entre fragmentos
     alias(libs.plugins.androidx.navigation.safeargs)
@@ -39,11 +38,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         viewBinding = true
