@@ -35,7 +35,7 @@ class ImcCalculatorFragment : Fragment() {
 
         // Reduce la edad en 1 al clickar en el boton
         binding.menosEdad.setOnClickListener {
-            if (binding.edadValor.text.toString().toInt() in 1..120) {
+            if (binding.edadValor.text.toString().toInt() > 1) {
                 binding.edadValor.text =
                     (
                             binding.edadValor.text
@@ -48,7 +48,7 @@ class ImcCalculatorFragment : Fragment() {
 
         // Aumenta la edad en 1 al clickar en el boton
         binding.masEdad.setOnClickListener {
-            if (binding.edadValor.text.toString().toInt() in 1..120) {
+            if (binding.edadValor.text.toString().toInt() < 120) {
                 binding.edadValor.text =
                     (
                             binding.edadValor.text
@@ -60,7 +60,7 @@ class ImcCalculatorFragment : Fragment() {
 
         // Reduce el peso en 1 al clickar en el boton
         binding.menosPeso.setOnClickListener {
-            if (binding.pesoValor.text.toString().toInt() in 1..300) {
+            if (binding.pesoValor.text.toString().toInt() > 1) {
                 binding.pesoValor.text =
                     (
                             binding.pesoValor.text
@@ -72,7 +72,7 @@ class ImcCalculatorFragment : Fragment() {
 
         // Aumenta el peso en 1 al clickar en el boton
         binding.masPeso.setOnClickListener {
-            if (binding.pesoValor.text.toString().toInt() in 1..300) {
+            if (binding.pesoValor.text.toString().toInt() < 300) {
                 binding.pesoValor.text =
                     (
                             binding.pesoValor.text
