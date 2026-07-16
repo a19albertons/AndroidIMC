@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.androidimc.databinding.FragmentResultIMCBinding
 
 /**
@@ -54,6 +55,10 @@ class ResultIMCFragment : Fragment() {
                 binding.situacionIMC.text = getString(R.string.obesity)
                 binding.descripcionIMC.text = getString(R.string.obesity_desc)
             }
+        }
+
+        binding.moverseCalculatorIMC.setOnClickListener {
+            view.findNavController().navigate(R.id.action_resultIMCFragment_to_imcCalculatorFragment)
         }
 
         return view
