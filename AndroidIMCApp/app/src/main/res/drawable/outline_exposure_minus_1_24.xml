@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:height="24dp"
+        android:tint="#000000"
+        android:viewportHeight="960"
+        android:viewportWidth="960"
+        android:width="24dp">
+
+    <!-- Signo de resta (antes era una suma) -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M120,480 L440,480 L440,560 L120,560 Z"/>
+
+    <!-- El segundo path se mantiene igual -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M630,760 L630,322 L538,388 L492,318 L656,200 L720,200 L720,760 L630,760 Z"/>
+
+    </vector>
