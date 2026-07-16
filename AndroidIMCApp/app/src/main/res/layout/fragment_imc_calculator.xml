@@ -165,7 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/botones"
-                android:src="@drawable/outline_heart_minus_24"
+                android:src="@drawable/outline_exposure_minus_1_24"
 
 
                 />
@@ -229,7 +229,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/botones"
-                android:src="@drawable/outline_heart_minus_24"
+                android:src="@drawable/outline_exposure_minus_1_24"
 
 
                 />
