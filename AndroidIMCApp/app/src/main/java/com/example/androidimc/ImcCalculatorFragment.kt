@@ -108,14 +108,14 @@ class ImcCalculatorFragment : Fragment() {
         // Seleccion genero
         // Hombre
         binding.hombreSelecionado.setOnClickListener {
-            binding.hombreSelecionado.setBackgroundTintList(resources.getColorStateList(R.color.selecionado))
-            binding.mujerSelecionada.setBackgroundTintList(resources.getColorStateList(R.color.fondo_recuadros))
+            binding.hombreSelecionado.setBackgroundTintList(resources.getColorStateList(R.color.selecionado, null))
+            binding.mujerSelecionada.setBackgroundTintList(resources.getColorStateList(R.color.fondo_recuadros, null))
         }
 
         // Mujer
         binding.mujerSelecionada.setOnClickListener {
-            binding.hombreSelecionado.setBackgroundTintList(resources.getColorStateList(R.color.fondo_recuadros))
-            binding.mujerSelecionada.setBackgroundTintList(resources.getColorStateList(R.color.selecionado))
+            binding.hombreSelecionado.setBackgroundTintList(resources.getColorStateList(R.color.fondo_recuadros, null))
+            binding.mujerSelecionada.setBackgroundTintList(resources.getColorStateList(R.color.selecionado, null))
         }
 
         return view
