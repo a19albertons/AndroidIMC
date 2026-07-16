@@ -35,42 +35,51 @@ class ImcCalculatorFragment : Fragment() {
 
         // Reduce la edad en 1 al clickar en el boton
         binding.menosEdad.setOnClickListener {
-            binding.edadValor.text =
-                (
-                    binding.edadValor.text
-                        .toString()
-                        .toInt() - 1
-                ).toString()
+            if (binding.edadValor.text.toString().toInt() in 1..120) {
+                binding.edadValor.text =
+                    (
+                            binding.edadValor.text
+                                .toString()
+                                .toInt() - 1
+                            ).toString()
+            }
+
         }
 
         // Aumenta la edad en 1 al clickar en el boton
         binding.masEdad.setOnClickListener {
-            binding.edadValor.text =
-                (
-                    binding.edadValor.text
-                        .toString()
-                        .toInt() + 1
-                ).toString()
+            if (binding.edadValor.text.toString().toInt() in 1..120) {
+                binding.edadValor.text =
+                    (
+                            binding.edadValor.text
+                                .toString()
+                                .toInt() + 1
+                            ).toString()
+            }
         }
 
         // Reduce el peso en 1 al clickar en el boton
         binding.menosPeso.setOnClickListener {
-            binding.pesoValor.text =
-                (
-                    binding.pesoValor.text
-                        .toString()
-                        .toInt() - 1
-                ).toString()
+            if (binding.pesoValor.text.toString().toInt() in 1..300) {
+                binding.pesoValor.text =
+                    (
+                            binding.pesoValor.text
+                                .toString()
+                                .toInt() - 1
+                            ).toString()
+            }
         }
 
         // Aumenta el peso en 1 al clickar en el boton
         binding.masPeso.setOnClickListener {
-            binding.pesoValor.text =
-                (
-                    binding.pesoValor.text
-                        .toString()
-                        .toInt() + 1
-                ).toString()
+            if (binding.pesoValor.text.toString().toInt() in 1..300) {
+                binding.pesoValor.text =
+                    (
+                            binding.pesoValor.text
+                                .toString()
+                                .toInt() + 1
+                            ).toString()
+            }
         }
 
         // Cambia el valor de la altura al cambiar el valor del slider
