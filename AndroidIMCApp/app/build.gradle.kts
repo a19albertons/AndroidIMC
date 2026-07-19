@@ -47,6 +47,11 @@ android {
 }
 
 dependencies {
+    // Fragment Scenario
+    debugImplementation(libs.androidx.fragment.testing.manifest)
+    androidTestImplementation(libs.androidx.fragment.testing)
+
+    // Dependencias origianales
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
