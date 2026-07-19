@@ -5,10 +5,10 @@ on:
   push:
     branches: [desarrollo, master]
     tags:
-      - 'AndroidIMC-*'
+      - "AndroidIMC-*"
   pull_request:
     branches: [desarrollo]
-    paths-ignore: ['**.md']
+    paths-ignore: ["**.md"]
 
     # Variables de entorno para la configuración del SDK y JDK
 env:
@@ -32,7 +32,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -67,7 +67,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -103,7 +103,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -139,7 +139,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Habilitar KVM en el ejecutor para aceleración por hardware nativa
       - name: Enable KVM group perms
@@ -170,7 +170,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Habilitar KVM en el ejecutor para aceleración por hardware nativa
       - name: Enable KVM group perms
@@ -192,8 +192,6 @@ jobs:
             chmod +x gradlew
             ./gradlew app:connectedAndroidTest
 
-
-
   # 6. Ensamblado y firmado del APK de release
   assemble-release:
     name: Assemble & Sign Release APK
@@ -211,7 +209,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -262,7 +260,7 @@ jobs:
     runs-on: ubuntu-24.04
     needs: [assemble-release]
     # Filtro corregido con sintaxis nativa de GitHub Actions
-    if: startsWith(github.ref, 'refs/tags/') && startsWith(github.ref_name, 'AndroidIMC-') 
+    if: startsWith(github.ref, 'refs/tags/') && startsWith(github.ref_name, 'AndroidIMC-')
     # Declaración explícita de permisos mínimos requeridos
     permissions:
       contents: write
@@ -271,7 +269,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # Descarga el apk firmado desde el job anterior
-      - name: Download signed APK 
+      - name: Download signed APK
         uses: actions/download-artifact@v4
         with:
           name: release-apk
