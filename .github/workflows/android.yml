@@ -50,7 +50,7 @@ jobs:
         if: always()
         with:
           name: lint-report
-          path: AndroidIMCApp/app/lint/reports/lint-results-produccionDebug.html
+          path: AndroidIMCApp/app/lint/reports/lint-results-debug.html
           retention-days: 5
 
   # 2. Análisis de estilo de código con Ktlint
