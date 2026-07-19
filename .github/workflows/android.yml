@@ -257,7 +257,7 @@ jobs:
           path: AndroidIMCApp/app-signed.apk
           retention-days: 5
 
-  # 6. Despliegue del APK firmado en GitHub Releases (solo para tags que comiencen con "AndroidIMC-")
+  # 7. Despliegue del APK firmado en GitHub Releases (solo para tags que comiencen con "AndroidIMC-")
   deploy:
     name: Create GitHub Release
     runs-on: ubuntu-24.04
