@@ -78,14 +78,14 @@ jobs:
         working-directory: AndroidIMCApp
         run: |
           chmod +x gradlew
-          ./gradlew -Pci --console=plain ktlintCheck
+          ./gradlew -Pci --console=plain ktlintCheck -PbuildDir=ktlint
 
       # Sube el reporte de ktlint como artefacto
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ktlint-report
-          path: AndroidIMCApp/app/lint/reports/ktlint/
+          path: AndroidIMCApp/app/ktlint/reports/*.txt
           retention-days: 5
 
   # 3. Compilación aplicación
@@ -160,6 +160,9 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-24.04
     needs: [assemble]
+    strategy:
+      matrix:
+        api-level: [24,25,26,27,28,29,30,31,32,33,34,35,36]
     steps:
       # Configura checkout
       - uses: actions/checkout@v4
@@ -183,8 +186,8 @@ jobs:
       - name: Run Android instrumented & unit tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
-          target: aosp_atd
+          api-level: ${{ matrix.api-level }}
+          target: default
           arch: x86_64
           profile: pixel_2
           working-directory: ./AndroidIMCApp
