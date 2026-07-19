@@ -15,11 +15,12 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class InflarFragmentos {
-    val fragmentArgsResultIMCFragment = Bundle().apply {
-        putInt("altura", 170)
-        putInt("peso", 70)
-        putInt("edad", 25)
-    }
+    val fragmentArgsResultIMCFragment =
+        Bundle().apply {
+            putInt("altura", 170)
+            putInt("peso", 70)
+            putInt("edad", 25)
+        }
 
     // Prueba para inflar el fragmento ImcCalculatorFragment
     @Test
@@ -32,7 +33,11 @@ class InflarFragmentos {
 
     @Test
     fun inflarResultIMCFragment() {
-        val scenario = launchFragmentInContainer<ResultIMCFragment>(themeResId = R.style.Theme_AndroidIMC, fragmentArgs = fragmentArgsResultIMCFragment)
+        val scenario =
+            launchFragmentInContainer<ResultIMCFragment>(
+                themeResId = R.style.Theme_AndroidIMC,
+                fragmentArgs = fragmentArgsResultIMCFragment,
+            )
         scenario.onFragment { fragment ->
             assertNotNull(fragment.view)
         }
