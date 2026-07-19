@@ -1,13 +1,12 @@
 plugins {
     // Librerias por defecto de Android
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
 
     // safeargs para pasar argumentos entre fragmentos
-    id("androidx.navigation.safeargs")
+    alias(libs.plugins.androidx.navigation.safeargs)
 
     // Generación de documentación con Dokka
-    alias(libs.plugins.kotlin.dokka) apply false
+    alias(libs.plugins.kotlin.dokka)
 
     // Ktlint para formatear el código
     alias(libs.plugins.ktlint)
@@ -24,7 +23,7 @@ android {
         minSdk = 24
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,11 +38,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         viewBinding = true
@@ -51,6 +47,11 @@ android {
 }
 
 dependencies {
+    // Fragment Scenario
+    debugImplementation(libs.androidx.fragment.testing.manifest)
+    androidTestImplementation(libs.androidx.fragment.testing)
+
+    // Dependencias origianales
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -60,4 +61,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+dokka {
+    dokkaSourceSets.configureEach {
+        suppress.set(name != "main")
+    }
 }

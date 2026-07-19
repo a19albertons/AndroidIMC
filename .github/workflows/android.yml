@@ -5,10 +5,10 @@ on:
   push:
     branches: [desarrollo, master]
     tags:
-      - 'AndroidIMC-*'
+      - "AndroidIMC-*"
   pull_request:
     branches: [desarrollo]
-    paths-ignore: ['**.md']
+    paths-ignore: ["**.md"]
 
     # Variables de entorno para la configuración del SDK y JDK
 env:
@@ -32,7 +32,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -50,7 +50,7 @@ jobs:
         if: always()
         with:
           name: lint-report
-          path: AndroidIMCApp/app/lint/reports/lint-results-produccionDebug.html
+          path: AndroidIMCApp/app/lint/reports/lint-results-debug.html
           retention-days: 5
 
   # 2. Análisis de estilo de código con Ktlint
@@ -67,7 +67,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -78,14 +78,14 @@ jobs:
         working-directory: AndroidIMCApp
         run: |
           chmod +x gradlew
-          ./gradlew -Pci --console=plain ktlintCheck
+          ./gradlew -Pci --console=plain ktlintCheck -PbuildDir=ktlint
 
       # Sube el reporte de ktlint como artefacto
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ktlint-report
-          path: AndroidIMCApp/app/lint/reports/ktlint/
+          path: AndroidIMCApp/app/ktlint/reports/*.txt
           retention-days: 5
 
   # 3. Compilación aplicación
@@ -103,7 +103,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -139,7 +139,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Habilitar KVM en el ejecutor para aceleración por hardware nativa
       - name: Enable KVM group perms
@@ -160,6 +160,9 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-24.04
     needs: [assemble]
+    strategy:
+      matrix:
+        api-level: [24,25,26,27,28,29,30,31,32,33,34,35,36]
     steps:
       # Configura checkout
       - uses: actions/checkout@v4
@@ -170,7 +173,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Habilitar KVM en el ejecutor para aceleración por hardware nativa
       - name: Enable KVM group perms
@@ -183,16 +186,14 @@ jobs:
       - name: Run Android instrumented & unit tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
-          target: aosp_atd
+          api-level: ${{ matrix.api-level }}
+          target: default
           arch: x86_64
           profile: pixel_2
           working-directory: ./AndroidIMCApp
           script: |
             chmod +x gradlew
             ./gradlew app:connectedAndroidTest
-
-
 
   # 6. Ensamblado y firmado del APK de release
   assemble-release:
@@ -211,7 +212,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
-          cache: 'gradle'
+          cache: "gradle"
 
       # Configura Android SDK
       - name: Setup Android SDK
@@ -256,13 +257,13 @@ jobs:
           path: AndroidIMCApp/app-signed.apk
           retention-days: 5
 
-  # 6. Despliegue del APK firmado en GitHub Releases (solo para tags que comiencen con "AndroidIMC-")
+  # 7. Despliegue del APK firmado en GitHub Releases (solo para tags que comiencen con "AndroidIMC-")
   deploy:
     name: Create GitHub Release
     runs-on: ubuntu-24.04
     needs: [assemble-release]
     # Filtro corregido con sintaxis nativa de GitHub Actions
-    if: startsWith(github.ref, 'refs/tags/') && startsWith(github.ref_name, 'AndroidIMC-') 
+    if: startsWith(github.ref, 'refs/tags/') && startsWith(github.ref_name, 'AndroidIMC-')
     # Declaración explícita de permisos mínimos requeridos
     permissions:
       contents: write
@@ -271,7 +272,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # Descarga el apk firmado desde el job anterior
-      - name: Download signed APK 
+      - name: Download signed APK
         uses: actions/download-artifact@v4
         with:
           name: release-apk
