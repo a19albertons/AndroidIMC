@@ -13,7 +13,7 @@ constraintlayout = "2.2.2"
 navigationFragment = "2.9.8"
 ktlint = "14.2.0"
 dokka = "2.2.0"
-navigationFragmentKtx = "2.9.8"
+navigationFragmentKtx = "2.10.0"
 
 
 
