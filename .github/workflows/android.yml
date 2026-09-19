@@ -3,11 +3,11 @@ name: CI/CD Pipeline
 # Configuración de eventos que disparan el workflow
 on:
   push:
-    branches: [desarrollo, master]
+    branches: [master]
     tags:
       - "AndroidIMC-*"
   pull_request:
-    branches: [desarrollo]
+    branches: [master]
     paths-ignore: ["**.md"]
 
     # Variables de entorno para la configuración del SDK y JDK
