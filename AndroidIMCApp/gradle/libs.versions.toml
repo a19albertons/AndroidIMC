@@ -12,7 +12,7 @@ activity = "1.13.0"
 constraintlayout = "2.2.2"
 navigationFragment = "2.10.2"
 ktlint = "14.2.0"
-dokka = "2.2.0"
+dokka = "2.3.0"
 navigationFragmentKtx = "2.10.2"
 
 
